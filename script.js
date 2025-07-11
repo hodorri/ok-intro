@@ -4,7 +4,8 @@
  */
 
 // Google Apps Script 웹앱 URL
-const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyXHXkyNay8bpVOHF21VU5Z9Bt202snihBQdipNti9-XyyEocTYsPltRTbqHNNDRjGS/exec';
+const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzgD8a-3lpdNYPMNTG9XciH4CSIUl9RfEYk7EcThKeR2VUTxS6VzHNTEpFXQSS39ig_/exec';
+
 
 // DOM 요소 참조
 const introForm = document.getElementById('introForm');
