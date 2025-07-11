@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력직 신입사원 자기소개</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>경력직 신입사원 자기소개</h1>
+            <p>새로운 동료들과 함께 성장해나가요!</p>
+        </header>
+
+        <main>
+            <!-- 자기소개 입력 폼 -->
+            <section class="form-section">
+                <h2>자기소개 작성하기</h2>
+                <form id="introForm" class="intro-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">
+                                <i class="fas fa-user"></i>
+                                이름 *
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="성함을 입력해주세요">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="department">
+                                <i class="fas fa-building"></i>
+                                소속 부서 *
+                            </label>
+                            <input type="text" id="department" name="department" required placeholder="소속 부서를 입력해주세요">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="responsibilities">
+                                <i class="fas fa-briefcase"></i>
+                                담당 업무 *
+                            </label>
+                            <textarea id="responsibilities" name="responsibilities" required placeholder="담당하실 업무를 입력해주세요" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="previousCompany">
+                                <i class="fas fa-industry"></i>
+                                이전 직장 *
+                            </label>
+                            <input type="text" id="previousCompany" name="previousCompany" required placeholder="이전 직장을 입력해주세요">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mbti">
+                                <i class="fas fa-brain"></i>
+                                MBTI *
+                            </label>
+                            <select id="mbti" name="mbti" required>
+                                <option value="">MBTI를 선택해주세요</option>
+                                <option value="INTJ">INTJ</option>
+                                <option value="INTP">INTP</option>
+                                <option value="ENTJ">ENTJ</option>
+                                <option value="ENTP">ENTP</option>
+                                <option value="INFJ">INFJ</option>
+                                <option value="INFP">INFP</option>
+                                <option value="ENFJ">ENFJ</option>
+                                <option value="ENFP">ENFP</option>
+                                <option value="ISTJ">ISTJ</option>
+                                <option value="ISFJ">ISFJ</option>
+                                <option value="ESTJ">ESTJ</option>
+                                <option value="ESFJ">ESFJ</option>
+                                <option value="ISTP">ISTP</option>
+                                <option value="ISFP">ISFP</option>
+                                <option value="ESTP">ESTP</option>
+                                <option value="ESFP">ESFP</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hobbies">
+                                <i class="fas fa-heart"></i>
+                                취미 *
+                            </label>
+                            <input type="text" id="hobbies" name="hobbies" required placeholder="취미를 입력해주세요">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="tmi">
+                                <i class="fas fa-lightbulb"></i>
+                                나의 TMI *
+                            </label>
+                            <textarea id="tmi" name="tmi" required placeholder="재미있는 나만의 이야기를 들려주세요" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="greetings">
+                                <i class="fas fa-comments"></i>
+                                경력직 동기들에게 한 마디 *
+                            </label>
+                            <textarea id="greetings" name="greetings" required placeholder="동기들에게 전하고 싶은 말씀을 남겨주세요" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="submit-btn">
+                        <span class="btn-text">자기소개 등록하기</span>
+                        <div class="loading-spinner" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </button>
+                </form>
+            </section>
+
+            <!-- 자기소개 카드 목록 -->
+            <section class="cards-section">
+                <h2>경력직 신입사원 소개</h2>
+                <div id="loadingCards" class="loading-state">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>자기소개를 불러오는 중...</p>
+                </div>
+                <div id="errorState" class="error-state" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p id="errorMessage">데이터를 불러오는 중 오류가 발생했습니다.</p>
+                    <button id="retryBtn" class="retry-btn">다시 시도</button>
+                </div>
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <i class="fas fa-users"></i>
+                    <p>아직 등록된 자기소개가 없습니다.</p>
+                    <p>첫 번째 자기소개를 등록해보세요!</p>
+                </div>
+                <div id="cardsContainer" class="cards-container" style="display: none;">
+                    <!-- 카드들이 동적으로 추가됩니다 -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 경력직 신입사원 자기소개 플랫폼</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
