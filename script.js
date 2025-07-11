@@ -110,7 +110,9 @@ async function fetchIntroductions() {
     });
     if (!response.ok) throw new Error(`서버 응답 오류: ${response.status}`);
     const result = await response.json();
-    return result;
+    
+    // 응답이 배열이면 그대로 리턴
+    return Array.isArray(result) ? result : [];
 }
 
 function displayIntroductions(introductions) {
