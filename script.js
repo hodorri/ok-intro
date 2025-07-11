@@ -4,7 +4,7 @@
  */
 
 // Google Apps Script 웹앱 URL
-const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxFs69R1ufeRvRrJYidDZXDEOs0os1FEfUwWN2TBUHATuFqgeuMd1-21qF0RltE3Wxo/exec';
+const GAS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbyXHXkyNay8bpVOHF21VU5Z9Bt202snihBQdipNti9-XyyEocTYsPltRTbqHNNDRjGS/exec';
 
 // DOM 요소 참조
 const introForm = document.getElementById('introForm');
@@ -67,7 +67,8 @@ async function submitIntroduction(data) {
         body: JSON.stringify(data)
     });
     if (!response.ok) throw new Error(`서버 응답 오류: ${response.status}`);
-    const result = await response.text();
+    const result = await response.json();
+    if (result.error) throw new Error(result.error);
     return result;
 }
 
